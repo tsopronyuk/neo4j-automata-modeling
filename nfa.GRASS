@@ -1,0 +1,39 @@
+node.START_NODE {
+  color: #000000;
+  border-color: #000000;
+  diameter: 12px;
+  defaultCaption: "";
+}
+
+node.START_STATE {
+  color: #4CAF50;
+  border-color: #388E3C;
+  text-color-internal: #FFFFFF;
+  defaultCaption: "{name}";
+}
+
+node.FINAL_STATE {
+  color: #F44336;
+  border-color: #D32F2F;
+  text-color-internal: #FFFFFF;
+  defaultCaption: "{name}";
+}
+
+node.START_FINAL_STATE {
+  color: #FFD700;
+  border-color: #FFA000;
+  text-color-internal: #000000;
+  defaultCaption: "{name}";
+}
+
+node.STATE {
+  color: #2196F3;
+  border-color: #1976D2;
+  text-color-internal: #FFFFFF;
+  defaultCaption: "{name}";
+}
+
+relationship.TRANSITION {
+  color: #A5A5A5;
+  defaultCaption: "{symbols}";
+}
