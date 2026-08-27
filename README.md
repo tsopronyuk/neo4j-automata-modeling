@@ -4,7 +4,7 @@ Official repository for the research paper on mapping Finite Automata (DFA/NFA) 
 
 ## 📌 Overview
 
-This project provides a complete toolchain for encoding state machines as graph entities, running formal language operations natively via Cypher, and benchmarking synthetic state spaces at scale.
+This project provides a complete toolchain for encoding state machines as graph entities, running formal language operations natively via Cypher, and benchmarking synthetic state spaces at scale. The repository accompanies the paper *"Graph-Oriented Modeling and Declarative Analysis of Finite Automata Using Property Graphs"* and provides all artifacts necessary to reproduce the results and demonstrations presented in the paper.
 
 ---
 
@@ -18,8 +18,8 @@ neo4j-automata-modeling/
 │
 ├── cypher/
 │   ├── automata.cypher           # Base LPG schema setup, labels, and transition constraints
-│   ├── create_auto_for_tests.cypher # Script initializing test automata (aut_main, aut_nfa_eps, aut_empty_lang)
-│   ├── extended_operations.cypher# Cypher suite for product automaton, emptiness, and path traversal
+│   ├── create_auto_for_demos.cypher # Script instantiating demonstration automata (aut_main, aut_nfa_eps, aut_empty_lang)
+│   ├── formal_operations.cypher  # Cypher suite for product automaton, emptiness, and path traversal (illustrative examples)
 │   └── benchmark_queries.cypher  # Profiling queries and asymptotic analysis scripts
 │
 ├── styles/
@@ -31,63 +31,12 @@ neo4j-automata-modeling/
     │   ├── aut_03.eps            # Topology of synthetic benchmark automaton M3
     │   └── aut_04.eps            # Initial structural topology of the 7-state benchmark M4
     │
-    ├── [Created via create_auto_for_tests.cypher]
-    │   ├── aut_main.eps          # Baseline deterministic test automaton (M_main)
-    │   ├── aut_nfa_eps.eps       # Non-deterministic test automaton with ε-transitions (M_nfa_eps)
-    │   └── aut_empty_lang.eps    # Test automaton recognizing an empty language (M_empty_lang)
+    ├── [Created via create_auto_for_demos.cypher]
+    │   ├── aut_main.eps          # Baseline deterministic demonstration automaton (M_main)
+    │   ├── aut_nfa_eps.eps       # Non-deterministic demonstration automaton with ε-transitions (M_nfa_eps)
+    │   └── aut_empty_lang.eps    # Demonstration automaton recognizing an empty language (M_empty_lang)
     │
-    └── [Operation & Test Execution Results]
+    └── [Operation & Demonstration Results]
         ├── aut_prod.eps          # Synthesized Cartesian product automaton (M_prod = M_main x M_nfa_eps)
         ├── aut_path.eps          # Graph rendering of minimal accepted trajectories (length = 2) on M4
         └── aut_word.eps          # Visual path execution trajectory for word w = [a, b, b]
-
-```
-
----
-
-## 🛠 Prerequisites
-
-* **Neo4j DBMS**: v4.4+ or v5.x (with Graph Data Science (GDS) library enabled).
-* **C++ Compiler**: GCC 9.0+ or Clang (supporting C++17) to compile benchmark generators.
-
----
-
-## 🚀 Quick Start
-
-### 1. Generate Synthetic Benchmarks
-
-Compile and run the C++ generator to produce large-scale benchmark Cypher import scripts:
-
-```bash
-g++ -std=c++17 -O3 generators/NFAtoNeo4j.cpp -o nfa_gen
-./nfa_gen
-
-```
-
-### 2. Import and Setup Automata in Neo4j
-
-1. Run `cypher/automata.cypher` to initialize schema constraints and indexes.
-2. Execute `cypher/create_auto_for_tests.cypher` to instantiate test automata (`aut_main`, `aut_nfa_eps`, `aut_empty_lang`).
-
-### 3. Run Formal Operations
-
-Execute `cypher/extended_operations.cypher` to perform:
-
-* Dynamic Word Acceptance Validation.
-* Global Shortest Non-Empty Accepted Word Extraction.
-* Synchronous Product Automaton Construction ($\mathcal{M}_1 \times \mathcal{M}_2$).
-* Language Intersection Emptiness Decision.
-
-### 4. Load Visual Styling
-
-In Neo4j Browser, drag and drop `styles/nfa.GRASS` into the query frame to apply standardized semantic color schemes for states and transitions.
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](https://www.google.com/search?q=LICENSE) file for details.
-
-```
-
-```
