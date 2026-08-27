@@ -40,3 +40,52 @@ neo4j-automata-modeling/
         ├── aut_prod.eps          # Synthesized Cartesian product automaton (M_prod = M_main x M_nfa_eps)
         ├── aut_path.eps          # Graph rendering of minimal accepted trajectories (length = 2) on M4
         └── aut_word.eps          # Visual path execution trajectory for word w = [a, b, b]
+
+```
+
+---
+
+## 🛠 Prerequisites
+
+* **Neo4j DBMS**: v4.4+ or v5.x (with Graph Data Science (GDS) library enabled).
+* **C++ Compiler**: GCC 9.0+ or Clang (supporting C++17) to compile benchmark generators.
+
+---
+
+## 🚀 Quick Start
+
+### 1. Generate Synthetic Benchmarks
+
+Compile and run the C++ generator to produce large-scale benchmark Cypher import scripts:
+
+```bash
+g++ -std=c++17 -O3 generators/NFAtoNeo4j.cpp -o nfa_gen
+./nfa_gen
+
+```
+
+### 2. Import and Setup Automata in Neo4j
+
+1. Run `cypher/automata.cypher` to initialize schema constraints and indexes.
+2. Execute `cypher/create_auto_for_demos.cypher` to instantiate demonstration automata (`aut_main`, `aut_nfa_eps`, `aut_empty_lang`).
+
+### 3. Run Formal Operations (Demonstrations)
+
+Execute `cypher/formal_operations.cypher` to illustrate the following automata operations on the graph-encoded representation:
+
+* Dynamic Word Acceptance Validation.
+* Global Shortest Non-Empty Accepted Word Extraction.
+* Synchronous Product Automaton Construction ($\mathcal{M}_1 \times \mathcal{M}_2$).
+* Language Intersection Emptiness Decision.
+
+These queries serve as **demonstrations of operational correctness**, showing that the graph-native formulations faithfully implement the theoretical operations defined in the paper.
+
+### 4. Load Visual Styling
+
+In Neo4j Browser, drag and drop `styles/nfa.GRASS` into the query frame to apply standardized semantic color schemes for states and transitions.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](https://www.google.com/search?q=LICENSE) file for details.
