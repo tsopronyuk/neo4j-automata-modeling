@@ -1,7 +1,7 @@
 // ===================================================================
 // EXTENDED AUTOMATA OPERATIONS & ALGEBRA SUITE (SUBSECTION 6.3)
 // Database Engine: Neo4j (Cypher Query Language)
-// Companion File: extended_automata_suite.cypher
+// Companion File: formal_automata_suite.cypher
 // -------------------------------------------------------------------
 // FULL AUTOMATA INVENTORY IN THIS SUITE:
 // 1. 'aut_word'    - NFA topology specifically used for word path tracing (e.g., w = ['a', 'b', 'b']).
