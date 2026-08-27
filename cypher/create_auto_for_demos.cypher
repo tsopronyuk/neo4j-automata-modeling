@@ -56,7 +56,7 @@ CREATE
 
 // -------------------------------------------------------------------
 // STEP 4: AUTOMATON 3 - Empty Language Boundary Case ('aut_empty_lang')
-// Disconnected final state to test L(M) = Ø
+// Disconnected final state to demonstration L(M) = Ø
 // -------------------------------------------------------------------
 CREATE 
   (s_emp:START_NODE {name: 'start_emp', automaton_id: 'aut_empty_lang'}),
