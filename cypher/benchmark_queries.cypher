@@ -1,22 +1,22 @@
 // ===================================================================
-// BENCHMARK QUERY SUITE FOR LPG AUTOMATA (7 ANALYTICAL TESTS)
+// DEMONSTRATION QUERY SUITE FOR LPG AUTOMATA (7 ANALYTICAL DEMONSTRATIONS)
 // Database Engine: Neo4j (Cypher Query Language)
 // Supports both regular and combined start/final node labels:
 //   - Start states:  :START_STATE | :START_FINAL_STATE
 //   - Final states:  :FINAL_STATE | :START_FINAL_STATE
 // 
 // Mapping: 
-//   - Tests 1-5: Primary Automaton ('aut_main')
-//   - Test 6:    NFA Epsilon Automaton ('aut_nfa_eps')
-//   - Test 7:    Empty Language Automaton ('aut_empty_lang')
+//   - Demonstrations 1-5: Primary Automaton ('aut_main')
+//   - Demonstration 6:   NFA Epsilon Automaton ('aut_nfa_eps')
+//   - Demonstration 7:   Empty Language Automaton ('aut_empty_lang')
 // ===================================================================
 
 // ===================================================================
-// PART 1: TESTS FOR PRIMARY AUTOMATON TOPOLOGY ('aut_main')
+// PART 1: DEMONSTRATIONS FOR PRIMARY AUTOMATON TOPOLOGY ('aut_main')
 // ===================================================================
 
 // -------------------------------------------------------------------
-// TEST 1: Valid Path Traversal
+// DEMONSTRATION 1: Valid Path Traversal
 // Target: 'aut_main'
 // Objective: Retrieve all accepting paths from initial to final state.
 // -------------------------------------------------------------------
@@ -27,7 +27,7 @@ RETURN [node IN nodes(p) | node.name] AS Path,
        [rel IN relationships(p) | rel.symbols] AS TransitionSymbols;
 
 // -------------------------------------------------------------------
-// TEST 2: Unreachable States Detection
+// DEMONSTRATION 2: Unreachable States Detection
 // Target: 'aut_main'
 // Objective: Identify isolated nodes that cannot be reached from any start state.
 // -------------------------------------------------------------------
@@ -40,7 +40,7 @@ RETURN all_states.name AS UnreachableState;
 
 
 // -------------------------------------------------------------------
-// TEST 3: Trap / Sink State Identification
+// DEMONSTRATION 3: Trap / Sink State Identification
 // Target: 'aut_main'
 // Objective: Locate states from which no path exists to ANY final state.
 // -------------------------------------------------------------------
@@ -53,7 +53,7 @@ RETURN trap.name AS TrapState;
 
 
 // -------------------------------------------------------------------
-// TEST 4: Immediate Empty-String Acceptance
+// DEMONSTRATION 4: Immediate Empty-String Acceptance
 // Target: 'aut_main'
 // Objective: Verify if the automaton accepts epsilon immediately at start.
 // -------------------------------------------------------------------
@@ -63,7 +63,7 @@ RETURN s.name AS StartAndFinalState,
 
 
 // -------------------------------------------------------------------
-// TEST 5: Cycle and Strongly Connected Component (SCC) Detection
+// DEMONSTRATION 5: Cycle and Strongly Connected Component (SCC) Detection
 // Target: 'aut_main'
 // Objective: Detect loops and cyclic execution paths within the graph.
 // -------------------------------------------------------------------
@@ -74,11 +74,11 @@ RETURN DISTINCT n.name AS CycleNode,
 
 
 // ===================================================================
-// PART 2: TESTS FOR SPECIALIZED TOPOLOGIES
+// PART 2: DEMONSTRATIONS FOR SPECIALIZED TOPOLOGIES
 // ===================================================================
 
 // -------------------------------------------------------------------
-// TEST 6: Epsilon-Closure Computation
+// DEMONSTRATION 6: Epsilon-Closure Computation
 // Target: 'aut_nfa_eps' (NFA with Epsilon Transitions)
 // Objective: Compute all states reachable via epsilon transitions.
 // -------------------------------------------------------------------
@@ -90,7 +90,7 @@ RETURN start.name AS InitialState,
 
 
 // -------------------------------------------------------------------
-// TEST 7: Empty Language Verification
+// DEMONSTRATION 7: Empty Language Verification
 // Target Topology: 'aut_empty_lang' (Disconnected Final State)
 // Objective: Prove L(M) = Ø without generating Cartesian products
 // -------------------------------------------------------------------
