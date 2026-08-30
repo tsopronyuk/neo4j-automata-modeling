@@ -210,8 +210,3 @@ If you use this repository in your research, please cite:
 }
 ```
 
----
-
-## 🙏 Acknowledgements
-
-The author would like to express profound gratitude to the Department of Applied Mathematics and Information Technologies at Yuriy Fedkovych Chernivtsi National University for supporting this research.
