@@ -6,7 +6,7 @@
 // FULL AUTOMATA INVENTORY IN THIS SUITE:
 // 1. 'aut_word'    - NFA topology specifically used for word path tracing (e.g., w = ['a', 'b', 'b']).
 // 2. 'aut_main'    - Primary NFA topology (M1) used for general queries & product synthesis.
-// 3. 'aut_04'      - Synthetic 7-state NFA benchmark topology for shortest word search.
+// 3. 'aut_04'      - Synthetic 7-state NFA topology for shortest word search.
 // 4. 'aut_nfa_eps' - NFA topology containing epsilon transitions (M2).
 // 5. 'aut_prod'    - Synthesized Cartesian Product Automaton (aut_main x aut_nfa_eps).
 // ===================================================================
@@ -90,7 +90,7 @@ RETURN entry, r_start, p;
 // FULL AUTOMATA INVENTORY IN THIS SUITE:
 // 1. 'aut_word'    - NFA topology specifically used for word path tracing (e.g., w = ['a', 'b', 'b']).
 // 2. 'aut_main'    - Primary NFA topology (M1) used for general queries & product synthesis.
-// 3. 'aut_04'      - Synthetic 7-state NFA benchmark topology for shortest word search.
+// 3. 'aut_04'      - Synthetic 7-state NFA topology for shortest word search.
 // 4. 'aut_nfa_eps' - NFA topology containing epsilon transitions (M2).
 // 5. 'aut_prod'    - Synthesized Cartesian Product Automaton (aut_main x aut_nfa_eps).
 // ===================================================================
