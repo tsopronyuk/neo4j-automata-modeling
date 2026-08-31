@@ -1,4 +1,4 @@
-# 🧮 Graph-Oriented Modeling and Analysis of Finite Automata in Neo4j
+# 🧮 Graph-Oriented Mathematical Modeling and Computational Analysis of Finite Automata in Neo4j
 
 [![Neo4j](https://img.shields.io/badge/Neo4j-4.4%2B-blue)](https://neo4j.com/)
 [![C++](https://img.shields.io/badge/C%2B%2B-17-blue)](https://isocpp.org/)
@@ -17,7 +17,7 @@ neo4j-automata-modeling/
 │
 ├── 📂 generators/
 │   ├── NFAtoNeo4j.cpp          # 🧪 Demonstration automata generator (with ε-transitions)
-│   └── 100_NFA_table.cpp       # 📊 Main benchmark: 5 scales × 20 replications = 100 NFAs
+│   └── 100_NFA_table.cpp       # 📊 C++17 benchmark generator with structural validation (20 instances per scale; 100 total)
 │
 ├── 📂 cypher/
 │   ├── automata.cypher              # 🏗️ LPG schema, labels, constraints, indexes
@@ -28,7 +28,7 @@ neo4j-automata-modeling/
 ├── 📂 results/                   
 │   ├── benchmark_results.csv         # 📊 Raw measurements for all 100 instances
 │   ├── table_aggregated.tex          # 📋 Auto-generated mean ± std dev table
-│   └── sample_benchmark_automata.cypher # 🔄 Representative Cypher data
+│   └── sample_automata.cypher # 🔄 Representative Cypher data
 │
 ├── 📂 figures/
 │   ├── aut_main.eps              # 🎯 Primary demonstration automaton
@@ -95,6 +95,9 @@ $$
 
 NFA instances.
 
+All generated instances are structurally validated before their benchmark metrics are recorded. The validation checks the uniqueness of state identifiers, the uniqueness of the initial state, the presence of accepting states, the validity of transition endpoints and labels, and reachability of all states from the initial state. With the default configuration, all 100 generated instances must pass these checks for the benchmark to complete successfully.
+
+
 ### ⚙️ Benchmark Configuration
 
 | Parameter | Value |
@@ -125,7 +128,7 @@ Run:
 |------|-------------|
 | `results/benchmark_results.csv` | 📊 Raw measurements for all 100 instances |
 | `results/table_aggregated.tex` | 📋 Auto-generated mean $\pm$ std dev table (paper-ready) |
-| `results/sample_benchmark_automata.cypher` | 🔄 Representative Cypher data (first replication per scale) |
+| `results/sample_automata.cypher` | 🔄 Representative Cypher data (first replication per scale) |
 
 ---
 
