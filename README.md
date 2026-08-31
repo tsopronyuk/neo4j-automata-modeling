@@ -1,4 +1,4 @@
-# 🧮 Graph-Oriented Mathematical Modeling and Computational Analysis of Finite Automata in Neo4j
+# 🧮 Graph-Oriented Modeling and Declarative Analysis of Finite Automata Using Property Graphs
 
 [![Neo4j](https://img.shields.io/badge/Neo4j-4.4%2B-blue)](https://neo4j.com/)
 [![C++](https://img.shields.io/badge/C%2B%2B-17-blue)](https://isocpp.org/)
